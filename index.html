@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Puju — A Luxury Digital Love Letter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            velvet: {
+              950: '#0d060a',
+              900: '#160910',
+              850: '#1f0c16',
+              800: '#2b101e',
+            },
+            rosegold: {
+              200: '#f7d9d4',
+              300: '#eeb9b0',
+              400: '#e29587',
+              500: '#c97466',
+              600: '#a35245',
+            },
+            champagne: {
+              100: '#fdf8f3',
+              200: '#f8ece0',
+              300: '#efd8c0',
+              400: '#e2bd96',
+              500: '#d4a373',
+            },
+            amberGlow: '#ffb74d',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            nepali: ['"Noto Sans Devanagari"', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 8s ease-in-out infinite',
+            'float-delayed': 'floatSlow 10s ease-in-out 3s infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'spin-slow': 'spin 24s linear infinite',
+            'flicker': 'flicker 0.18s infinite alternate',
+            'heartbeat': 'heartbeat 1.3s ease-in-out infinite',
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-18px) rotate(1.5deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 22px rgba(255, 183, 77, 0.35), 0 0 45px rgba(226, 149, 135, 0.2)' },
+              '50%': { boxShadow: '0 0 38px rgba(255, 183, 77, 0.75), 0 0 70px rgba(226, 149, 135, 0.45)' },
+            },
+            flicker: {
+              '0%': { transform: 'scale(1) rotate(-2deg)', opacity: '0.94' },
+              '50%': { transform: 'scale(1.06, 0.96) rotate(1deg)', opacity: '1' },
+              '100%': { transform: 'scale(0.97, 1.05) rotate(2deg)', opacity: '0.9' },
+            },
+            heartbeat: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '14%': { transform: 'scale(1.18)' },
+              '28%': { transform: 'scale(1)' },
+              '42%': { transform: 'scale(1.14)' },
+              '70%': { transform: 'scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-deep: #0d060a;
+      --rosegold: #e29587;
+      --champagne: #f8ece0;
+      --gold: #ffb74d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: #fdf8f3;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(226, 149, 135, 0.35);
+      color: #fdf8f3;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d060a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #e29587, #ffb74d);
+      border-radius: 999px;
+    }
+
+    /* Glassmorphism Utilities */
+    .glass-card {
+      background: linear-gradient(145deg, rgba(43, 16, 30, 0.56) 0%, rgba(22, 9, 16, 0.72) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(248, 236, 224, 0.12);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-dock {
+      background: rgba(22, 9, 16, 0.78);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(226, 149, 135, 0.25);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fdf8f3 0%, #f7d9d4 35%, #ffb74d 72%, #e29587 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Lock Screen Shake & Reveal */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      15% { transform: translateX(-10px); }
+      30% { transform: translateX(10px); }
+      45% { transform: translateX(-8px); }
+      60% { transform: translateX(8px); }
+      75% { transform: translateX(-4px); }
+      90% { transform: translateX(4px); }
+    }
+    .animate-shake {
+      animation: shake 0.48s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    .curtain-left, .curtain-right {
+      transition: transform 1.25s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.1s ease;
+    }
+    .unlocked .curtain-left {
+      transform: translateX(-105%);
+    }
+    .unlocked .curtain-right {
+      transform: translateX(105%);
+    }
+
+    /* Scroll Reveal */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 3D Flip Card for 13 Reasons */
+    .perspective-1000 {
+      perspective: 1200px;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      transform-style: preserve-3d;
+    }
+    .flip-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Envelope 3D Animation */
+    .envelope-wrapper {
+      perspective: 1200px;
+    }
+    .envelope-flap {
+      transform-origin: top center;
+      transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0.3s;
+    }
+    .envelope-open .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 5;
+    }
+    .letter-sheet {
+      transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.25s, opacity 0.7s ease 0.25s;
+    }
+    .envelope-open .letter-sheet {
+      transform: translateY(-28px);
+    }
+
+    /* Polaroid Frame */
+    .polaroid-card {
+      background: linear-gradient(180deg, #fffdf9 0%, #f7efe6 100%);
+      color: #241219;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.75);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+    }
+    .polaroid-card:hover {
+      transform: translateY(-8px) rotate(0deg) scale(1.02) !important;
+      box-shadow: 0 28px 55px -10px rgba(226, 149, 135, 0.35);
+      z-index: 20;
+    }
+
+    /* Equalizer Bars */
+    @keyframes eqBar {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-playing span:nth-child(1) { animation: eqBar 0.65s ease-in-out infinite; }
+    .eq-playing span:nth-child(2) { animation: eqBar 0.45s ease-in-out 0.15s infinite; }
+    .eq-playing span:nth-child(3) { animation: eqBar 0.75s ease-in-out 0.3s infinite; }
+    .eq-playing span:nth-child(4) { animation: eqBar 0.55s ease-in-out 0.1s infinite; }
+
+    /* Candle Flame */
+    .candle-flame {
+      background: radial-gradient(ellipse at bottom, #fff9d6 0%, #ffcf56 42%, #ff7b29 78%, rgba(255, 80, 0, 0) 100%);
+      border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+      box-shadow: 0 0 24px #ffb74d, 0 0 50px rgba(255, 145, 50, 0.65);
+    }
+
+    /* Smoke puff when blown out */
+    @keyframes smokeRise {
+      0% { opacity: 0.85; transform: translateY(0) scale(0.6); }
+      100% { opacity: 0; transform: translateY(-70px) scale(2.2); }
+    }
+    .smoke-puff {
+      animation: smokeRise 2.2s ease-out forwards;
+    }
+
+    /* Heartbeat hold ring */
+    .progress-ring-circle {
+      transition: stroke-dashoffset 0.08s linear;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+
+    /* Subtle noise grain overlay */
+    .noise-overlay {
+      background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+  </style>
+</head>
+<body class="antialiased relative min-h-screen selection:bg-rosegold-500/30">
+
+  <!-- Ambient Particle & Stardust Canvas -->
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <!-- Celebration Fireworks & Lanterns Canvas -->
+  <canvas id="celebrationCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- =========================================================
+       1. SECURITY LOCK SCREEN (PIN: 0231)
+  ========================================================== -->
+  <div id="lockScreen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+    <div class="curtain-left fixed inset-y-0 left-0 w-1/2 bg-gradient-to-br from-[#12060c] via-[#1d0b14] to-[#12060c] border-r border-rosegold-400/15 z-0"></div>
+    <div class="curtain-right fixed inset-y-0 right-0 w-1/2 bg-gradient-to-bl from-[#12060c] via-[#1d0b14] to-[#12060c] border-l border-rosegold-400/15 z-0"></div>
+
+    <div class="absolute w-[440px] h-[440px] rounded-full bg-rosegold-500/15 blur-[110px] -top-24 -left-24 pointer-events-none"></div>
+    <div class="absolute w-[420px] h-[420px] rounded-full bg-amberGlow/10 blur-[110px] -bottom-24 -right-24 pointer-events-none"></div>
+
+    <div id="lockCard" class="relative z-10 w-[92%] max-w-md glass-card rounded-3xl p-7 sm:p-9 text-center transition-all duration-700">
+      <div id="lockIconWrapper" class="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-rosegold-400/25 to-amberGlow/20 border border-rosegold-300/30 flex items-center justify-center shadow-lg shadow-rosegold-500/10 transition-transform duration-700">
+        <svg id="lockSvg" class="w-8 h-8 text-champagne-200 transition-all duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path id="lockShackle" stroke-linecap="round" stroke-linejoin="round" d="M7 11V7a5 5 0 0 1 10 0v4" class="transition-transform duration-500 origin-bottom" />
+          <rect x="4" y="11" width="16" height="10" rx="3" fill="rgba(226, 149, 135, 0.18)" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15.2c-.8-.9-2.2-.9-2.9 0-.7.8-.6 2 .2 2.7L12 20l2.7-2.1c.8-.7.9-1.9.2-2.7-.7-.9-2.1-.9-2.9 0z" fill="#ffb74d" stroke="none" />
+        </svg>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-[0.28em] text-rosegold-300/80 mb-2 font-medium">Private Sanctuary • For Her Eyes Only</p>
+      <h1 class="font-serif text-2xl sm:text-3xl text-champagne-100 font-semibold leading-snug mb-2">
+        A special world awaits <span class="italic text-amberGlow">Puju</span>
+      </h1>
+      <p class="text-xs sm:text-sm text-champagne-200/70 mb-6 leading-relaxed">
+        Enter our secret 4-digit PIN to unlock your birthday letter &amp; begin the melody.
+      </p>
+
+      <div id="pinDots" class="flex items-center justify-center gap-4 mb-3">
+        <div class="pin-dot w-3.5 h-3.5 rounded-full border border-rosegold-300/50 bg-white/5 transition-all duration-300"></div>
+        <div class="pin-dot w-3.5 h-3.5 rounded-full border border-rosegold-300/50 bg-white/5 transition-all duration-300"></div>
+        <div class="pin-dot w-3.5 h-3.5 rounded-full border border-rosegold-300/50 bg-white/5 transition-all duration-300"></div>
+        <div class="pin-dot w-3.5 h-3.5 rounded-full border border-rosegold-300/50 bg-white/5 transition-all duration-300"></div>
+      </div>
+
+      <p id="pinHint" class="h-5 text-xs text-rosegold-300/90 italic mb-4 transition-opacity duration-300">
+        Hint: Our special 4-digit key ✨
+      </p>
+
+      <div class="grid grid-cols-3 gap-3 max-w-[270px] mx-auto select-none">
+        <button type="button" data-key="1" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">1</button>
+        <button type="button" data-key="2" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">2</button>
+        <button type="button" data-key="3" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">3</button>
+        <button type="button" data-key="4" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">4</button>
+        <button type="button" data-key="5" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">5</button>
+        <button type="button" data-key="6" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">6</button>
+        <button type="button" data-key="7" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">7</button>
+        <button type="button" data-key="8" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">8</button>
+        <button type="button" data-key="9" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">9</button>
+        <button type="button" id="clearPinBtn" class="h-13 py-3 rounded-2xl bg-white/[0.02] hover:bg-white/10 active:scale-95 border border-white/5 text-xs uppercase tracking-wider text-champagne-300/70 transition-all">Clear</button>
+        <button type="button" data-key="0" class="keypad-btn h-13 py-3 rounded-2xl bg-white/[0.04] hover:bg-rosegold-400/20 active:scale-95 border border-white/10 hover:border-rosegold-300/40 text-lg font-medium text-champagne-100 transition-all">0</button>
+        <button type="button" id="backspacePinBtn" aria-label="Delete digit" class="h-13 py-3 rounded-2xl bg-white/[0.02] hover:bg-white/10 active:scale-95 border border-white/5 flex items-center justify-center text-champagne-300/80 transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z"/></svg>
+        </button>
+      </div>
+
+      <p class="mt-5 text-[11px] text-champagne-200/40">You can also type using your keyboard</p>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FLOATING GLASS NAVIGATION DOCK + BIRTHDAY SONG CONTROLLER
+  ========================================================== -->
+  <header id="floatingNav" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 opacity-0 pointer-events-none transition-all duration-700 w-[95%] max-w-3xl">
+    <nav class="glass-dock rounded-full px-3 sm:px-5 py-2 flex items-center justify-between gap-1.5">
+      <div class="flex items-center gap-0.5 sm:gap-1.5 overflow-x-auto no-scrollbar">
+        <a href="#hero" data-nav="hero" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-100 bg-rosegold-400/25 border border-rosegold-300/30 transition-all whitespace-nowrap">Puju</a>
+        <a href="#nepali-calendar" data-nav="nepali-calendar" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">मंसिर १३</a>
+        <a href="#reasons-deck" data-nav="reasons-deck" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">13 Reasons</a>
+        <a href="#love-story" data-nav="love-story" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">Letter</a>
+        <a href="#constellation-section" data-nav="constellation-section" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">Star Sky</a>
+        <a href="#memory-vault" data-nav="memory-vault" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">Memories</a>
+        <a href="#birthday-wish" data-nav="birthday-wish" class="nav-link px-2.5 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-champagne-200/70 hover:text-champagne-100 transition-all whitespace-nowrap">Make a Wish</a>
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="songModeBtn" title="Switch Melody" class="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] text-champagne-200 transition-all">
+          <span id="songModeLabel">🎂 Birthday Song</span>
+        </button>
+        <button id="musicToggleBtn" aria-label="Toggle Birthday Melody" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-rosegold-500/35 to-amberGlow/25 hover:from-rosegold-500/50 hover:to-amberGlow/35 border border-amberGlow/40 text-xs text-champagne-100 transition-all shrink-0">
+          <div id="eqBars" class="flex items-end gap-[2px] h-3.5 w-3.5 justify-center">
+            <span class="w-[2px] h-1.5 bg-amberGlow rounded-full"></span>
+            <span class="w-[2px] h-2.5 bg-rosegold-300 rounded-full"></span>
+            <span class="w-[2px] h-1 bg-amberGlow rounded-full"></span>
+            <span class="w-[2px] h-2 bg-rosegold-300 rounded-full"></span>
+          </div>
+          <span id="musicLabel" class="font-medium">Playing</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       MAIN SINGLE-PAGE EXPERIENCE
+  ========================================================== -->
+  <main id="mainContent" class="relative z-10 noise-overlay pb-28">
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-14 pb-20 text-center overflow-hidden">
+      <div data-parallax="0.18" class="parallax-orb absolute top-16 left-[10%] w-72 h-72 rounded-full bg-rosegold-500/15 blur-[95px] pointer-events-none"></div>
+      <div data-parallax="-0.15" class="parallax-orb absolute bottom-20 right-[8%] w-96 h-96 rounded-full bg-amberGlow/12 blur-[110px] pointer-events-none"></div>
+      <div data-parallax="0.1" class="parallax-orb absolute top-1/3 right-[22%] w-52 h-52 rounded-full bg-purple-500/10 blur-[80px] pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card border border-rosegold-300/25 mb-8 animate-float-slow">
+        <span class="w-2 h-2 rounded-full bg-amberGlow animate-ping"></span>
+        <span class="text-xs uppercase tracking-[0.26em] text-champagne-200/90 font-medium">Mangsir 13 • Celebrating You</span>
+      </div>
+
+      <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight leading-[1.06] max-w-4xl mx-auto mb-6">
+        <span class="block text-champagne-100/95 font-normal italic text-3xl sm:text-5xl mb-2">Happy Birthday,</span>
+        <span class="gold-gradient-text drop-shadow-[0_10px_35px_rgba(226,149,135,0.28)]">My Dearest Sani❤️</span>
+      </h1>
+
+      <p class="max-w-xl mx-auto text-sm sm:text-lg text-champagne-200/80 font-light leading-relaxed mb-10">
+        Every sunrise feels softer, every laugh echoes warmer, and every ordinary day turns into poetry because you are in it. Welcome to a little universe crafted just for you.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#nepali-calendar" class="magnetic-btn group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-rosegold-500 via-rosegold-400 to-amberGlow text-velvet-950 font-semibold text-sm shadow-xl shadow-rosegold-500/25 hover:shadow-amberGlow/40 transition-all">
+          <span>Explore Your Day</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+        <a href="#love-story" class="magnetic-btn inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full glass-card hover:bg-white/10 text-champagne-100 text-sm font-medium border border-rosegold-300/30 transition-all">
+          <span>Open Your Love Letter</span>
+          <span class="text-amberGlow">✉</span>
+        </a>
+      </div>
+
+      <div class="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+        <span class="text-[10px] uppercase tracking-[0.3em] text-champagne-300">Scroll the story</span>
+        <div class="w-px h-8 bg-gradient-to-b from-rosegold-300 to-transparent"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: NEPALI CALENDAR & MANGSIR 13 SPOTLIGHT -->
+    <section id="nepali-calendar" class="relative py-24 px-5 max-w-6xl mx-auto">
+      <div class="reveal-on-scroll text-center mb-14">
+        <p class="text-xs uppercase tracking-[0.28em] text-amberGlow/90 mb-2">Bikram Sambat • विक्रम संवत्</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100 mb-3">
+          The Day the Stars Aligned: <span class="italic text-rosegold-300 font-nepali">मंसिर १३</span>
+        </h2>
+        <p class="text-sm sm:text-base text-champagne-200/70 max-w-2xl mx-auto">
+          Out of all the days in the Nepali calendar, <strong class="text-amberGlow font-medium">Mangsir 13</strong> shines brightest—because it brought Puju into this world.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="reveal-on-scroll lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-5 mb-5 border-b border-white/10">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <span class="font-nepali text-2xl sm:text-3xl font-bold gold-gradient-text">मंसिर २०८३</span>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] bg-amberGlow/15 border border-amberGlow/40 text-amberGlow font-medium">Mangsir • Nov/Dec</span>
+              </div>
+              <p class="text-xs text-champagne-200/60 mt-1">Tap any date to read a secret note • Golden Ring marks Puju's Birthday</p>
+            </div>
+            <div class="text-right">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rosegold-500/20 border border-rosegold-300/30 text-xs text-rosegold-200">
+                <span>✨</span> <span class="font-nepali">शुभ जन्मदिन पुजु</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-7 gap-1.5 sm:gap-2 text-center mb-3">
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">आइत</span>Sun</div>
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">सोम</span>Mon</div>
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">मंगल</span>Tue</div>
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">बुध</span>Wed</div>
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">बिही</span>Thu</div>
+            <div class="text-[11px] sm:text-xs font-medium text-champagne-300/70 py-1"><span class="font-nepali block">शुक्र</span>Fri</div>
+            <div class="text-[11px] sm:text-xs font-medium text-rosegold-300 py-1"><span class="font-nepali block">शनि</span>Sat</div>
+          </div>
+
+          <div id="bsCalendarGrid" class="grid grid-cols-7 gap-1.5 sm:gap-2.5"></div>
+
+          <div id="calendarNoteBox" class="mt-6 p-4 rounded-2xl bg-gradient-to-r from-amberGlow/15 via-rosegold-500/15 to-transparent border border-amberGlow/30 flex items-start gap-3 transition-all">
+            <span class="text-xl mt-0.5">👑</span>
+            <div>
+              <p id="calendarNoteTitle" class="text-xs sm:text-sm font-semibold text-amberGlow">मंसिर १३ (Mangsir 13) — Puju's Royal Birthday</p>
+              <p id="calendarNoteDesc" class="text-xs sm:text-sm text-champagne-100/85 mt-0.5 leading-relaxed">
+                The universe's finest masterpiece was born on Mangsir 13. Today and every year, we celebrate your kindness, grace, and radiant soul.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-on-scroll lg:col-span-5 flex flex-col gap-6">
+          <div class="glass-card rounded-3xl p-6 sm:p-8 flex-1 flex flex-col justify-between relative overflow-hidden border-amberGlow/30">
+            <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-amberGlow/15 blur-2xl pointer-events-none"></div>
+
+            <div>
+              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amberGlow/20 border border-amberGlow/40 text-amberGlow text-xs font-semibold mb-5">
+                <span>✦</span> Queen of Mangsir 13
+              </div>
+              <div class="flex items-baseline gap-4 mb-3">
+                <span class="font-nepali text-5xl sm:text-6xl font-bold gold-gradient-text">१३</span>
+                <div>
+                  <h3 class="font-serif text-2xl sm:text-3xl text-champagne-100 font-semibold">Mangsir 13</h3>
+                  <p class="text-xs text-rosegold-300 uppercase tracking-widest">Bikram Sambat Milestone</p>
+                </div>
+              </div>
+              <p class="text-sm text-champagne-200/80 leading-relaxed mt-3">
+                In crisp autumn-winter air when Himalayan skies turn crystal clear, <span class="text-champagne-100 font-medium">Mangsir 13</span> arrives as my favorite date of the year—the anniversary of my favorite person.
+              </p>
+            </div>
+
+            <div class="mt-7 pt-6 border-t border-white/10">
+              <div class="flex items-center justify-between mb-3">
+                <span id="timerStatusLabel" class="text-[11px] uppercase tracking-[0.22em] text-rosegold-300 font-medium">Counting to Next Mangsir 13</span>
+                <span class="text-[11px] text-amberGlow font-nepali">मंसिर १३</span>
+              </div>
+              <div class="grid grid-cols-4 gap-2.5 text-center">
+                <div class="rounded-2xl bg-velvet-950/70 border border-rosegold-300/20 py-3 px-1">
+                  <div id="cdDays" class="font-serif text-2xl sm:text-3xl font-bold text-champagne-100">00</div>
+                  <div class="text-[10px] uppercase tracking-wider text-champagne-300/60 mt-0.5">Days</div>
+                </div>
+                <div class="rounded-2xl bg-velvet-950/70 border border-rosegold-300/20 py-3 px-1">
+                  <div id="cdHours" class="font-serif text-2xl sm:text-3xl font-bold text-champagne-100">00</div>
+                  <div class="text-[10px] uppercase tracking-wider text-champagne-300/60 mt-0.5">Hours</div>
+                </div>
+                <div class="rounded-2xl bg-velvet-950/70 border border-rosegold-300/20 py-3 px-1">
+                  <div id="cdMinutes" class="font-serif text-2xl sm:text-3xl font-bold text-champagne-100">00</div>
+                  <div class="text-[10px] uppercase tracking-wider text-champagne-300/60 mt-0.5">Mins</div>
+                </div>
+                <div class="rounded-2xl bg-velvet-950/70 border border-amberGlow/35 py-3 px-1">
+                  <div id="cdSeconds" class="font-serif text-2xl sm:text-3xl font-bold text-amberGlow">00</div>
+                  <div class="text-[10px] uppercase tracking-wider text-champagne-300/60 mt-0.5">Secs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-3xl p-6 border-rosegold-400/25 flex items-center justify-between gap-4">
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-rosegold-300 mb-1">Interactive Ritual</p>
+              <h4 class="font-serif text-xl text-champagne-100 font-semibold">Sync Our Heartbeats</h4>
+              <p id="heartbeatStatus" class="text-xs text-champagne-200/75 mt-1 leading-relaxed">
+                Press &amp; hold the glowing heart for 2.5 seconds to unlock a whispered secret.
+              </p>
+            </div>
+            <button id="heartbeatBtn" type="button" aria-label="Press and hold heart" class="relative w-20 h-20 rounded-full flex items-center justify-center shrink-0 select-none touch-none group">
+              <svg class="w-20 h-20 absolute inset-0" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="34" stroke="rgba(226,149,135,0.2)" stroke-width="4" fill="rgba(43,16,30,0.6)" />
+                <circle id="heartbeatProgress" class="progress-ring-circle" cx="40" cy="40" r="34" stroke="#ffb74d" stroke-width="4" stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round" fill="transparent" />
+              </svg>
+              <span id="heartbeatCore" class="text-2xl animate-heartbeat transition-transform group-active:scale-125">💖</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 13 REASONS -->
+    <section id="reasons-deck" class="relative py-24 px-5 max-w-5xl mx-auto">
+      <div class="reveal-on-scroll text-center mb-12">
+        <p class="text-xs uppercase tracking-[0.28em] text-rosegold-300 mb-2">13 Cards for Mangsir 13</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100 mb-3">
+          13 Reasons Why You Are <span class="italic text-amberGlow">My Everything</span>
+        </h2>
+        <p class="text-sm text-champagne-200/70 max-w-xl mx-auto">
+          Tap the card to flip it over, or draw through all 13 love notes dedicated to your birth date.
+        </p>
+      </div>
+
+      <div class="reveal-on-scroll flex flex-col items-center">
+        <div id="reasonCardWrapper" class="perspective-1000 w-full max-w-md h-72 sm:h-80 cursor-pointer select-none mb-7">
+          <div id="reasonFlipInner" class="flip-inner">
+            <div class="flip-face glass-card rounded-3xl p-8 flex flex-col items-center justify-between border border-amberGlow/35 text-center shadow-2xl">
+              <div class="w-full flex items-center justify-between text-xs text-rosegold-300/80">
+                <span id="reasonCounter">Reason 01 / 13</span>
+                <span class="font-nepali text-amberGlow">मंसिर १३</span>
+              </div>
+              <div class="my-auto">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-amberGlow/25 to-rosegold-500/25 border border-amberGlow/40 flex items-center justify-center text-2xl">
+                  <span id="reasonEmoji">✨</span>
+                </div>
+                <p class="text-xs uppercase tracking-[0.25em] text-rosegold-300 mb-2">Tap Card to Reveal</p>
+                <h3 id="reasonFrontTitle" class="font-serif text-2xl sm:text-3xl text-champagne-100 font-semibold">Reason #1</h3>
+              </div>
+              <span class="text-[11px] text-champagne-200/50">Touch to flip &amp; read ↻</span>
+            </div>
+
+            <div class="flip-face flip-back rounded-3xl p-8 flex flex-col items-center justify-between bg-gradient-to-br from-[#2b101e] via-[#1f0c16] to-[#14070e] border border-amberGlow/50 text-center shadow-2xl">
+              <div class="w-full flex items-center justify-between text-xs text-amberGlow">
+                <span id="reasonBackBadge">Reason #1 of 13</span>
+                <span>♥ For Puju</span>
+              </div>
+              <p id="reasonBackText" class="font-cormorant italic text-xl sm:text-2xl text-champagne-100 leading-relaxed my-auto">
+                "The way your eyes light up when you laugh makes every worry in my world vanish instantly."
+              </p>
+              <span class="text-[11px] text-rosegold-300/70">Tap to flip back ↺</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="prevReasonBtn" class="px-5 py-2.5 rounded-full glass-card hover:bg-white/10 border border-white/15 text-xs sm:text-sm text-champagne-100 transition-all">← Previous</button>
+          <button id="shuffleReasonBtn" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-rosegold-500/30 to-amberGlow/30 hover:from-rosegold-500/45 hover:to-amberGlow/45 border border-amberGlow/40 text-xs sm:text-sm text-amberGlow font-medium transition-all">✨ Draw Random</button>
+          <button id="nextReasonBtn" class="px-5 py-2.5 rounded-full glass-card hover:bg-white/10 border border-white/15 text-xs sm:text-sm text-champagne-100 transition-all">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: STORY TIMELINE & LOVE LETTER -->
+    <section id="love-story" class="relative py-24 px-5 max-w-5xl mx-auto">
+      <div class="reveal-on-scroll text-center mb-16">
+        <p class="text-xs uppercase tracking-[0.28em] text-rosegold-300 mb-2">Chapters of Us</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100 mb-3">
+          Our Story &amp; A Letter for <span class="italic text-amberGlow">Puju</span>
+        </h2>
+        <p class="text-sm text-champagne-200/70 max-w-xl mx-auto">
+          Every moment with you feels like turning the page of a timeless romance.
+        </p>
+      </div>
+
+      <div class="relative max-w-3xl mx-auto mb-24">
+        <div class="absolute left-5 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-rosegold-400/50 to-transparent -translate-x-1/2"></div>
+
+        <div class="reveal-on-scroll relative flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 pl-12 sm:pl-0">
+          <div class="sm:w-[45%] sm:text-right sm:pr-8">
+            <span class="text-xs uppercase tracking-widest text-amberGlow font-medium">Chapter I</span>
+            <h3 class="font-serif text-xl sm:text-2xl text-champagne-100 mt-1">The Spark That Changed Everything</h3>
+            <p class="text-xs sm:text-sm text-champagne-200/75 mt-2 leading-relaxed">
+              From our very first conversation, your warmth and effortless smile felt like coming home after a long journey.
+            </p>
+          </div>
+          <div class="absolute left-5 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-amberGlow ring-4 ring-velvet-950 shadow-[0_0_15px_#ffb74d]"></div>
+          <div class="hidden sm:block sm:w-[45%]"></div>
+        </div>
+
+        <div class="reveal-on-scroll relative flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 pl-12 sm:pl-0">
+          <div class="hidden sm:block sm:w-[45%]"></div>
+          <div class="absolute left-5 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-rosegold-400 ring-4 ring-velvet-950 shadow-[0_0_15px_#e29587]"></div>
+          <div class="sm:w-[45%] sm:pl-8">
+            <span class="text-xs uppercase tracking-widest text-rosegold-300 font-medium">Chapter II</span>
+            <h3 class="font-serif text-xl sm:text-2xl text-champagne-100 mt-1">A Thousand Little Moments</h3>
+            <p class="text-xs sm:text-sm text-champagne-200/75 mt-2 leading-relaxed">
+              Late-night talks, shared playlists, inside jokes, and the quiet comfort of knowing you are always in my corner.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal-on-scroll relative flex flex-col sm:flex-row items-start sm:items-center justify-between pl-12 sm:pl-0">
+          <div class="sm:w-[45%] sm:text-right sm:pr-8">
+            <span class="text-xs uppercase tracking-widest text-amberGlow font-medium">Chapter III • Mangsir 13</span>
+            <h3 class="font-serif text-xl sm:text-2xl text-champagne-100 mt-1">Celebrating You Today &amp; Always</h3>
+            <p class="text-xs sm:text-sm text-champagne-200/75 mt-2 leading-relaxed">
+              Here is to your dreams, your boundless grace, and all the birthdays we will celebrate hand in hand.
+            </p>
+          </div>
+          <div class="absolute left-5 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-amberGlow ring-4 ring-velvet-950 shadow-[0_0_15px_#ffb74d]"></div>
+          <div class="hidden sm:block sm:w-[45%]"></div>
+        </div>
+      </div>
+
+      <div class="reveal-on-scroll max-w-2xl mx-auto">
+        <div class="text-center mb-6">
+          <p class="text-xs uppercase tracking-[0.25em] text-amberGlow mb-1">Sealed With Love</p>
+          <p class="text-sm text-champagne-200/80">Tap the golden wax seal below to unfold your birthday letter</p>
+        </div>
+
+        <div id="envelopeContainer" class="envelope-wrapper relative mx-auto cursor-pointer select-none">
+          <div id="closedEnvelope" class="relative h-64 sm:h-72 rounded-3xl glass-card border border-rosegold-300/30 overflow-hidden flex items-center justify-center shadow-2xl transition-all duration-700 hover:border-amberGlow/50">
+            <div class="envelope-flap absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-velvet-800/95 to-velvet-900/90 border-b border-rosegold-300/20 z-20" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-rosegold-500/10 via-transparent to-amberGlow/10 pointer-events-none"></div>
+
+            <button id="openEnvelopeBtn" type="button" class="relative z-30 w-20 h-20 rounded-full bg-gradient-to-br from-[#b8324f] via-[#8f1d38] to-[#5e0f23] border-2 border-amberGlow/60 shadow-[0_10px_30px_rgba(184,50,79,0.65)] flex flex-col items-center justify-center text-champagne-100 hover:scale-110 active:scale-95 transition-transform animate-pulse-glow">
+              <span class="font-serif italic text-lg font-bold text-amberGlow">P ♥</span>
+              <span class="text-[9px] uppercase tracking-widest text-champagne-200/90">Tap Seal</span>
+            </button>
+
+            <div class="absolute bottom-5 inset-x-0 text-center z-10">
+              <p class="font-cormorant italic text-lg text-champagne-200/90">For Puju, on Mangsir 13</p>
+            </div>
+          </div>
+
+          <div id="openedLetter" class="hidden letter-sheet rounded-3xl bg-gradient-to-b from-[#fdf8f2] via-[#faf0e4] to-[#f5e6d6] text-[#261119] p-7 sm:p-12 shadow-[0_30px_80px_rgba(0,0,0,0.85)] border border-amberGlow/40 relative">
+            <div class="flex items-center justify-between border-b border-[#261119]/15 pb-4 mb-6">
+              <div>
+                <p class="text-[11px] uppercase tracking-[0.25em] text-[#9e4756] font-semibold">Mangsir 13 • Personal Love Letter</p>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#261119] mt-0.5">My Dearest Puju,</h3>
+              </div>
+              <button id="closeLetterBtn" type="button" class="text-xs px-3 py-1.5 rounded-full bg-[#261119]/10 hover:bg-[#261119]/20 text-[#261119] font-medium transition-colors">
+                Fold Envelope
+              </button>
+            </div>
+
+            <div class="font-cormorant text-lg sm:text-xl leading-relaxed space-y-4 text-[#2d161f]">
+              <p>
+                Happy Birthday, my love. Today is <strong class="font-semibold text-[#8f1d38]">Mangsir 13</strong>—the day the world became infinitely brighter because you arrived in it.
+              </p>
+              <p>
+                If I could gather every star above the Himalayas and weave them into words, it still wouldn't capture how grateful I am for your heart, your laughter, and the gentle magic you bring into my life every single day.
+              </p>
+              <p>
+                May this new year of your life wrap you in endless joy, bold adventures, peaceful mornings, and every dream your heart quietly wishes for. Wherever life takes us, I promise to keep choosing you, cheering for you, and loving you deeper with every passing season.
+              </p>
+              <p class="pt-3 font-serif italic text-xl text-[#8f1d38]">
+                Forever yours,<br/>
+                <span class="text-base not-italic font-sans font-semibold text-[#261119]">With all my heart ♥</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-14">
+          <p class="text-center text-xs uppercase tracking-[0.25em] text-rosegold-300 mb-5">“Open When…” Secret Love Capsules</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button type="button" data-capsule="0" class="capsule-btn glass-card rounded-2xl p-4 text-left hover:border-amberGlow/45 transition-all flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-amberGlow">Capsule 01</span>
+                <p class="font-serif text-base text-champagne-100 font-medium">Open when you miss me</p>
+              </div>
+              <span class="text-lg">💌</span>
+            </button>
+            <button type="button" data-capsule="1" class="capsule-btn glass-card rounded-2xl p-4 text-left hover:border-amberGlow/45 transition-all flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-amberGlow">Capsule 02</span>
+                <p class="font-serif text-base text-champagne-100 font-medium">Open when you need a smile</p>
+              </div>
+              <span class="text-lg">🌸</span>
+            </button>
+            <button type="button" data-capsule="2" class="capsule-btn glass-card rounded-2xl p-4 text-left hover:border-amberGlow/45 transition-all flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-amberGlow">Capsule 03</span>
+                <p class="font-serif text-base text-champagne-100 font-medium">Open when you feel overwhelmed</p>
+              </div>
+              <span class="text-lg">🌙</span>
+            </button>
+            <button type="button" data-capsule="3" class="capsule-btn glass-card rounded-2xl p-4 text-left hover:border-amberGlow/45 transition-all flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-amberGlow">Capsule 04</span>
+                <p class="font-serif text-base text-champagne-100 font-medium">Open on a quiet midnight</p>
+              </div>
+              <span class="text-lg">✨</span>
+            </button>
+          </div>
+          <div id="capsuleRevealBox" class="hidden mt-4 p-5 rounded-2xl glass-card border border-amberGlow/35 text-center">
+            <p id="capsuleTitle" class="text-xs uppercase tracking-widest text-amberGlow mb-1.5"></p>
+            <p id="capsuleMessage" class="font-cormorant italic text-xl text-champagne-100 leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WISHING STAR CONSTELLATION -->
+    <section id="constellation-section" class="relative py-24 px-5 max-w-5xl mx-auto">
+      <div class="reveal-on-scroll text-center mb-10">
+        <p class="text-xs uppercase tracking-[0.28em] text-amberGlow/90 mb-2">Celestial Keepsake • Mangsir 13 Sky</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100 mb-3">
+          Our Wishing Star <span class="italic text-rosegold-300">Constellation</span>
+        </h2>
+        <p class="text-sm text-champagne-200/70 max-w-xl mx-auto">
+          Tap any glowing star in Puju's heart constellation to read a hidden wish—or tap anywhere in the night sky to place and save your own star forever.
+        </p>
+      </div>
+
+      <div class="reveal-on-scroll glass-card rounded-3xl p-4 sm:p-6 border border-rosegold-300/25">
+        <div class="relative w-full h-[360px] sm:h-[430px] rounded-2xl overflow-hidden bg-gradient-to-b from-[#08030a] via-[#130714] to-[#1c0b18] border border-white/10">
+          <canvas id="constellationCanvas" class="w-full h-full cursor-crosshair block"></canvas>
+          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[11px] text-champagne-200/80 pointer-events-none">
+            ✨ Tap a star to read • Tap empty sky to plant a new wish star
+          </div>
+        </div>
+
+        <div id="starNoteDisplay" class="mt-4 p-4 rounded-2xl bg-white/[0.03] border border-rosegold-300/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span id="activeStarBadge" class="text-[11px] uppercase tracking-widest text-amberGlow font-semibold">★ North Star of Mangsir 13</span>
+            <p id="activeStarText" class="font-cormorant italic text-lg sm:text-xl text-champagne-100 mt-0.5">
+              "May every dream Puju whispers to the night sky find its way straight into her hands."
+            </p>
+          </div>
+          <button id="addWishStarPromptBtn" type="button" class="shrink-0 px-4 py-2 rounded-full bg-amberGlow/20 hover:bg-amberGlow/30 border border-amberGlow/40 text-xs text-amberGlow font-medium transition-all">
+            + Add Star Wish
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MEMORY VAULT -->
+    <section id="memory-vault" class="relative py-24 px-5 max-w-6xl mx-auto">
+      <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-amberGlow/90 mb-2">Timeless Polaroid Vault</p>
+          <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100">
+            Our Cherished <span class="italic text-rosegold-300">Memories</span>
+          </h2>
+          <p class="text-sm text-champagne-200/70 mt-2 max-w-xl">
+            Click any Polaroid to inspect it up close, or add new photos directly from your device—synced across all your devices.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="openAddMemoryBtn" type="button" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-rosegold-500 to-amberGlow text-velvet-950 font-semibold text-xs sm:text-sm shadow-lg shadow-rosegold-500/25 hover:scale-[1.03] active:scale-95 transition-all">
+            <span class="text-base leading-none">+</span>
+            <span>Add New Memory</span>
+          </button>
+          <button id="exportMemoriesBtn" type="button" title="Download JSON Backup" class="px-4 py-3 rounded-full glass-card hover:bg-white/10 text-xs text-champagne-200 border border-white/15 transition-all">
+            Export Backup
+          </button>
+          <label class="px-4 py-3 rounded-full glass-card hover:bg-white/10 text-xs text-champagne-200 border border-white/15 cursor-pointer transition-all">
+            Import JSON
+            <input id="importMemoriesInput" type="file" accept=".json" class="hidden" />
+          </label>
+        </div>
+      </div>
+
+      <div id="memoryGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- SECTION 7: BIRTHDAY WISH, CANDLE & QUEEN PASS -->
+    <section id="birthday-wish" class="relative py-24 px-5 max-w-4xl mx-auto text-center">
+      <div class="reveal-on-scroll glass-card rounded-[2.2rem] p-8 sm:p-14 border border-amberGlow/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-amberGlow/5 via-transparent to-rosegold-500/10 pointer-events-none"></div>
+
+        <p class="text-xs uppercase tracking-[0.3em] text-amberGlow mb-2">Mangsir 13 Grand Finale</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-champagne-100 mb-3">
+          Make a Birthday Wish, <span class="italic text-rosegold-300">Puju</span>
+        </h2>
+        <p id="wishSubtitle" class="text-sm sm:text-base text-champagne-200/75 max-w-lg mx-auto mb-10">
+          Close your eyes, whisper your heart's deepest wish into the candlelight, and blow out the flame.
+        </p>
+
+        <div class="relative w-64 h-64 mx-auto mb-8 flex flex-col items-center justify-end select-none">
+          <div class="relative flex flex-col items-center z-20 -mb-2">
+            <div id="candleFlame" class="candle-flame w-6 h-10 animate-flicker transition-all duration-500 mb-1"></div>
+            <div id="smokeContainer" class="absolute -top-6 left-1/2 -translate-x-1/2 pointer-events-none"></div>
+            <div class="w-1 h-2.5 bg-amber-950 rounded-full"></div>
+            <div class="w-4 h-14 rounded-t-md bg-gradient-to-b from-champagne-100 via-rosegold-200 to-rosegold-400 border border-amberGlow/50 shadow-md"></div>
+          </div>
+
+          <div class="w-40 h-14 rounded-t-2xl bg-gradient-to-r from-[#591c34] via-[#7c2748] to-[#591c34] border-t-2 border-rosegold-200/60 relative z-10 shadow-lg flex items-center justify-around px-3">
+            <span class="w-2 h-2 rounded-full bg-amberGlow"></span>
+            <span class="font-serif italic text-xs text-champagne-100">Puju ♥</span>
+            <span class="w-2 h-2 rounded-full bg-amberGlow"></span>
+          </div>
+
+          <div class="w-56 h-20 rounded-t-2xl rounded-b-xl bg-gradient-to-r from-[#3b1122] via-[#591c34] to-[#3b1122] border-t-2 border-amberGlow/50 relative shadow-2xl flex flex-col justify-between overflow-hidden">
+            <div class="flex justify-between px-2 pt-1">
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+              <span class="w-4 h-3 rounded-b-full bg-champagne-200/85"></span>
+            </div>
+            <div class="text-center pb-2.5">
+              <span class="font-nepali text-xs tracking-widest text-amberGlow/90">मंसिर १३ • शुभ जन्मदिन</span>
+            </div>
+          </div>
+
+          <div class="w-64 h-3 rounded-full bg-gradient-to-r from-rosegold-500 via-amberGlow to-rosegold-500 shadow-[0_10px_25px_rgba(255,183,77,0.4)]"></div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3.5 relative z-10">
+          <button id="blowCandleBtn" type="button" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-amberGlow via-rosegold-400 to-rosegold-500 text-velvet-950 font-semibold text-sm shadow-xl shadow-amberGlow/25 hover:scale-105 active:scale-95 transition-all">
+            ✨ Make a Wish &amp; Blow the Candle
+          </button>
+          <button id="micBlowBtn" type="button" class="px-5 py-3.5 rounded-full glass-card hover:bg-white/10 border border-rosegold-300/30 text-xs sm:text-sm text-champagne-100 transition-all">
+            🎙️ Blow into Mic
+          </button>
+          <button id="relightCandleBtn" type="button" class="hidden px-5 py-3.5 rounded-full glass-card hover:bg-white/10 border border-amberGlow/40 text-xs sm:text-sm text-amberGlow transition-all">
+            🕯️ Relight Candle
+          </button>
+        </div>
+
+        <div id="wishCelebrationBanner" class="hidden mt-8 p-6 rounded-3xl bg-gradient-to-r from-amberGlow/20 via-rosegold-500/20 to-amberGlow/20 border border-amberGlow/45">
+          <p class="font-serif italic text-2xl sm:text-3xl text-amberGlow mb-2">Happy Birthday, My Queen Puju! 🎆🏮</p>
+          <p class="text-xs sm:text-sm text-champagne-100/90 max-w-lg mx-auto mb-5">
+            May every sky lantern carry your wishes to the stars, and may this year bring you boundless happiness.
+          </p>
+          <button id="downloadQueenPassBtn" type="button" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-champagne-100 text-velvet-950 font-semibold text-xs sm:text-sm hover:bg-amberGlow transition-all shadow-lg">
+            <span>👑 Download Your Golden Birthday Queen Pass</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="addMemoryModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div class="glass-card rounded-3xl w-full max-w-md p-6 sm:p-8 border border-rosegold-300/30 relative">
+      <button type="button" id="closeAddMemoryBtn" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-champagne-100">✕</button>
+      <p class="text-xs uppercase tracking-[0.25em] text-amberGlow mb-1">Memory Vault</p>
+      <h3 class="font-serif text-2xl text-champagne-100 font-semibold mb-5">Save a New Polaroid</h3>
+
+      <form id="addMemoryForm" class="space-y-4">
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Choose Photo from Device *</label>
+          <input id="memoryPhotoInput" type="file" accept="image/*" required class="w-full text-xs text-champagne-200 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-rosegold-400 file:text-velvet-950 hover:file:bg-amberGlow cursor-pointer" />
+        </div>
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Memory Title *</label>
+          <input id="memoryTitleInput" type="text" required placeholder="e.g., Sunset Coffee with Puju" class="w-full px-4 py-2.5 rounded-xl bg-velvet-950/80 border border-white/15 text-sm text-champagne-100 focus:outline-none focus:border-amberGlow" />
+        </div>
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Date / Occasion</label>
+          <input id="memoryDateInput" type="text" placeholder="e.g., Mangsir 13, 2083" class="w-full px-4 py-2.5 rounded-xl bg-velvet-950/80 border border-white/15 text-sm text-champagne-100 focus:outline-none focus:border-amberGlow" />
+        </div>
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Personal Love Note *</label>
+          <textarea id="memoryNoteInput" rows="3" required placeholder="Write what made this moment unforgettable..." class="w-full px-4 py-2.5 rounded-xl bg-velvet-950/80 border border-white/15 text-sm text-champagne-100 focus:outline-none focus:border-amberGlow"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-rosegold-500 to-amberGlow text-velvet-950 font-semibold text-sm shadow-lg hover:opacity-95 transition-all">
+          Save Memory Forever ✨
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/88 backdrop-blur-lg p-4">
+    <div class="relative max-w-2xl w-full glass-card rounded-3xl p-5 sm:p-7 border border-rosegold-300/30">
+      <button type="button" id="closeLightboxBtn" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-champagne-100 flex items-center justify-center">✕</button>
+      <div class="rounded-2xl overflow-hidden bg-velvet-950 max-h-[60vh] flex items-center justify-center mb-5">
+        <img id="lightboxImg" src="" alt="Memory" class="w-full h-full object-contain max-h-[60vh]" />
+      </div>
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="lightboxDate" class="text-xs uppercase tracking-widest text-amberGlow font-medium"></span>
+          <h3 id="lightboxTitle" class="font-serif text-2xl text-champagne-100 font-semibold mt-0.5"></h3>
+          <p id="lightboxNote" class="text-sm text-champagne-200/85 mt-2 leading-relaxed"></p>
+        </div>
+        <button id="deleteMemoryBtn" type="button" class="hidden shrink-0 px-3 py-1.5 rounded-full bg-red-500/20 hover:bg-red-500/35 border border-red-400/40 text-xs text-red-200 transition-all">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="addStarModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+    <div class="glass-card rounded-3xl w-full max-w-md p-6 sm:p-7 border border-amberGlow/35 relative">
+      <button type="button" id="closeAddStarBtn" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-champagne-100">✕</button>
+      <p class="text-xs uppercase tracking-[0.25em] text-amberGlow mb-1">Mangsir 13 Sky</p>
+      <h3 class="font-serif text-2xl text-champagne-100 font-semibold mb-4">Plant a Wishing Star</h3>
+      <form id="addStarForm" class="space-y-4">
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Star Name *</label>
+          <input id="starTitleInput" type="text" required placeholder="e.g., Puju's Dream Star" class="w-full px-4 py-2.5 rounded-xl bg-velvet-950/80 border border-white/15 text-sm text-champagne-100 focus:outline-none focus:border-amberGlow" />
+        </div>
+        <div>
+          <label class="block text-xs text-champagne-200/80 mb-1.5">Your Wish or Note *</label>
+          <textarea id="starWishInput" rows="3" required placeholder="Whisper a wish into the constellation..." class="w-full px-4 py-2.5 rounded-xl bg-velvet-950/80 border border-white/15 text-sm text-champagne-100 focus:outline-none focus:border-amberGlow"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-amberGlow to-rosegold-400 text-velvet-950 font-semibold text-sm">
+          Light Up Star ✨
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- External JavaScript Module -->
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
